@@ -6,6 +6,7 @@ import nltk
 nltk.download('rslp')
 from nltk.stem import RSLPStemmer
 import logging
+from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer, TfidfVectorizer
 
 download('stopwords')
 logging.basicConfig(level=logging.INFO,
@@ -96,3 +97,23 @@ def lemmatize_and_stemmize(text):
                        if token.pos_ not in ['PUNCT','PROPN','ADP']]
     return text_lemma_stem
 
+def vetorizer_tfidf(X_train,X_test):
+    """Calculates the frequency of a word in a document using TF-IDF
+
+    Args:
+        X_train (list): A list with the training dataset
+        X_test (list): A list with the testing dataset
+
+    Returns:
+        X_train (list): Train dataset vetorized with TF-IDF
+        X_test (list): Test dataset vetorized with TF-IDF
+    """
+    vetorizer = CountVectorizer()
+    X_train = vetorizer.fit_transform(X_train.map(' '.join))
+    X_test = vetorizer.transform(X_test.map(' '.join))
+
+    transformer = TfidfTransformer()
+    X_train = transformer.fit_transform(X_train)
+    X_test = transformer.transform(X_test)
+
+    return X_train, X_test
