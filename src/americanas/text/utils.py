@@ -7,6 +7,7 @@ nltk.download('rslp')
 from nltk.stem import RSLPStemmer
 import logging
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer, TfidfVectorizer
+from sklearn.preprocessing import StandardScaler
 
 download('stopwords')
 logging.basicConfig(level=logging.INFO,
@@ -52,7 +53,7 @@ def lemmatize(text):
        faz também a tokenização e lematização da frase. 
 
     Args:
-        text (list): A frase que deve ser pré-processada
+        text (String): A frase que deve ser pré-processada
 
     Returns:
         list: Uma lista com os tokens lematizados
@@ -70,7 +71,7 @@ def stemmize(text):
        faz também a tokenização e stemização da frase. 
 
     Args:
-        text (list): A frase que deve ser pré-processada
+        text (String): A frase que deve ser pré-processada
 
     Returns:
         list: Uma lista com os tokens stemizados
@@ -86,7 +87,7 @@ def lemmatize_and_stemmize(text):
        faz também a tokenização, lematização stemização da frase. 
 
     Args:
-        text (list): A frase que deve ser pré-processada
+        text (String): A frase que deve ser pré-processada
 
     Returns:
         list: Uma lista com os tokens lematizados e stemizados
@@ -104,12 +105,12 @@ def vetorizer_tfidf(X_train,X_test):
     """Utiliza o TF-IDF para vetorizar um texto, calculando a frequencia das palavras em um texto
 
     Args:
-        X_train (list): Uma lista contendo os dados para treinamento.
-        X_test (list): Uma lista contendo os dados para teste.
+        X_train (array): Uma lista contendo os dados para treinamento.
+        X_test (array): Uma lista contendo os dados para teste.
 
     Returns:
-        X_train (list): Dataset de treinamento vetorizado com o TF-IDF
-        X_test (list): Dataset de teste vetorizado com o TF-IDF
+        X_train (array): Dataset de treinamento vetorizado com o TF-IDF
+        X_test (array): Dataset de teste vetorizado com o TF-IDF
     """
     vetorizer = CountVectorizer()
     X_train = vetorizer.fit_transform(X_train.map(' '.join))
@@ -119,4 +120,21 @@ def vetorizer_tfidf(X_train,X_test):
     X_train = transformer.fit_transform(X_train)
     X_test = transformer.transform(X_test)
 
+    return X_train, X_test
+
+
+def scaler(X_train,X_test):
+    """Utiliza o StandardScaler para normalizar os dados.
+
+    Args:
+        X_train (array): Uma lista contendo os dados para treinamento.
+        X_test (array): Uma lista contendo os dados para teste.
+
+    Returns:
+        X_train (array): Dataset de treinamento normalizados.
+        X_test (array): Dataset de teste normalizados.
+    """
+    scaler = StandardScaler(with_mean=False).fit(X_train)
+    X_train = scaler.transform(X_train)
+    X_test = scaler.transform(X_test)
     return X_train, X_test
