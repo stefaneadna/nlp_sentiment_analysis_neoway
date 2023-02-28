@@ -13,12 +13,12 @@ logging.basicConfig(level=logging.INFO,
                     format='%(levelname)s: %(message)s')
 
 def remove_special_characters(text):
-    """Remove special characters from a sentence.
+    """Remove os caracteres especiais de uma frase
 
     Args:
-        text (String): Sentence to remove special characters.
+        text (String): Frase para remoção de seus caracteres especiais
     Returns:
-        String: Pre-processed sentence.
+        String: Frase após o pré-processamento
     """    
     logging.info('Removing special characters')
     characters_1 = re.compile("[$.;:!\'?@,\"()\[\]]")
@@ -32,13 +32,13 @@ def remove_special_characters(text):
     return text
 
 def token_and_remove_sw(text):
-    """Remove stop words and tokenize a sentence.
+    """Remove as stop words de uma frase e tokeniza a frase. 
 
     Args:
-        text (String): Sentece to Remove stop words and tokenize.
+        text (String): Frase para tokenização e remoção de stop words
 
     Returns:
-        list: A list of all phrase tokens.
+        list: Uma lista contendo todos os tokens da frase
     """
     logging.info('Remove stop words and tokenize a sentence.')
     text = remove_special_characters(text)
@@ -48,13 +48,14 @@ def token_and_remove_sw(text):
     return text_without_sw 
 
 def lemmatize(text):
-    """Lemmatize the tokens of a sentence.
+    """Realiza o pré-processamento de uma frase, realizando remoção de caracteres especiais e de stop words,
+       faz também a tokenização e lematização da frase. 
 
     Args:
-        text (list): A list of tokens
+        text (list): A frase que deve ser pré-processada
 
     Returns:
-        list: A list of lemmatized tokens
+        list: Uma lista com os tokens lematizados
     """
     logging.info('Lemmatize the tokens of a sentence.')
     nlp = spacy.load('pt_core_news_sm')
@@ -65,13 +66,14 @@ def lemmatize(text):
     return text_lemma
 
 def stemmize(text):
-    """Stemmize the tokens of a sentence.
+    """Realiza o pré-processamento de uma frase, realizando remoção de caracteres especiais e de stop words,
+       faz também a tokenização e stemização da frase. 
 
     Args:
-        text (list): A list of tokens
+        text (list): A frase que deve ser pré-processada
 
     Returns:
-        list: A list of stemmed tokens
+        list: Uma lista com os tokens stemizados
     """
     logging.info('Stemmize the tokens of a sentence.')
     stemmer = RSLPStemmer()
@@ -80,13 +82,14 @@ def stemmize(text):
     return text_stem
 
 def lemmatize_and_stemmize(text):
-    """Lemmatize and stemmize the tokens of a sentence.
+    """Realiza o pré-processamento de uma frase, realizando remoção de caracteres especiais e de stop words,
+       faz também a tokenização, lematização stemização da frase. 
 
     Args:
-        text (list): A list of tokens
+        text (list): A frase que deve ser pré-processada
 
     Returns:
-        list: A list of lemmatized and stemmed tokens
+        list: Uma lista com os tokens lematizados e stemizados
     """
     logging.info('Lemmatize and stemmize the tokens of a sentence.')
     nlp = spacy.load('pt_core_news_sm')
@@ -98,15 +101,15 @@ def lemmatize_and_stemmize(text):
     return text_lemma_stem
 
 def vetorizer_tfidf(X_train,X_test):
-    """Calculates the frequency of a word in a document using TF-IDF
+    """Utiliza o TF-IDF para vetorizar um texto, calculando a frequencia das palavras em um texto
 
     Args:
-        X_train (list): A list with the training dataset
-        X_test (list): A list with the testing dataset
+        X_train (list): Uma lista contendo os dados para treinamento.
+        X_test (list): Uma lista contendo os dados para teste.
 
     Returns:
-        X_train (list): Train dataset vetorized with TF-IDF
-        X_test (list): Test dataset vetorized with TF-IDF
+        X_train (list): Dataset de treinamento vetorizado com o TF-IDF
+        X_test (list): Dataset de teste vetorizado com o TF-IDF
     """
     vetorizer = CountVectorizer()
     X_train = vetorizer.fit_transform(X_train.map(' '.join))
