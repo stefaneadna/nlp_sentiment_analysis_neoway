@@ -5,13 +5,11 @@ import spacy
 import nltk
 nltk.download('rslp')
 from nltk.stem import RSLPStemmer
-import logging
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer, TfidfVectorizer
 from sklearn.preprocessing import StandardScaler
 
 download('stopwords')
-logging.basicConfig(level=logging.INFO,
-                    format='%(levelname)s: %(message)s')
+
 
 def remove_special_characters(text):
     """Remove os caracteres especiais de uma frase
@@ -21,7 +19,6 @@ def remove_special_characters(text):
     Returns:
         String: Frase após o pré-processamento
     """    
-    logging.info('Removing special characters')
     characters_1 = re.compile("[$.;:!\'?@,\"()\[\]]")
     characters_2 = re.compile("(<br\s*/><br\s*/>)|(\-)|(\/)")
     characters_3 = re.compile('[0-9]+')
@@ -41,7 +38,6 @@ def token_and_remove_sw(text):
     Returns:
         list: Uma lista contendo todos os tokens da frase
     """
-    logging.info('Remove stop words and tokenize a sentence.')
     text = remove_special_characters(text)
     text_tokens = word_tokenize(text, language='portuguese') 
     stop_words = set(stopwords.words('portuguese'))
@@ -58,7 +54,6 @@ def lemmatize(text):
     Returns:
         list: Uma lista com os tokens lematizados
     """
-    logging.info('Lemmatize the tokens of a sentence.')
     nlp = spacy.load('pt_core_news_sm')
     text = token_and_remove_sw(text)
     doc = nlp(str(text))
@@ -76,7 +71,6 @@ def stemmize(text):
     Returns:
         list: Uma lista com os tokens stemizados
     """
-    logging.info('Stemmize the tokens of a sentence.')
     stemmer = RSLPStemmer()
     text = token_and_remove_sw(text)
     text_stem = [stemmer.stem(token) for token in text]
@@ -92,7 +86,6 @@ def lemmatize_and_stemmize(text):
     Returns:
         list: Uma lista com os tokens lematizados e stemizados
     """
-    logging.info('Lemmatize and stemmize the tokens of a sentence.')
     nlp = spacy.load('pt_core_news_sm')
     stemmer = RSLPStemmer()
     text = token_and_remove_sw(text)
