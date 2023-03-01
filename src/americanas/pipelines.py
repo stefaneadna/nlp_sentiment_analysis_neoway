@@ -7,6 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from models.classifiers import train_models, logistic_regression
 from models.io_models import save_model
 import logging
+from models.io_models import load_model
 
 logging.basicConfig(level=logging.INFO,
                     format='%(levelname)s: %(message)s')
@@ -24,6 +25,7 @@ def train_pipeline(path_dataset,path_model,path_count,path_tfidf):
     try:
         logging.info(f'Carregando o dataset do path:{path_dataset}')
         df = read_pre_processing_dataset(path_dataset)
+        df = df[0:50]
         df['review_lemma'] = df['title_text_review'].apply(lemmatize)
     except:
         logging.error(f'O path indicado não existe: {path_dataset}')
@@ -52,3 +54,41 @@ def train_pipeline(path_dataset,path_model,path_count,path_tfidf):
         exit()
     
     logging.info(f"Métricas:\n-Acurácia:{metrics_model['Accuracy']:.2f}\n-F1Score:{metrics_model['F1-score']:.2f}\n-Precisão:{metrics_model['Precision']:.2f}\n-Recall:{metrics_model['Recall']:.2f}")
+
+
+def predict_pipeline(text, path_model,path_count,path_tfidf):
+    """Pipeline para predição do sentimento de um texto
+
+    Args:
+        text (String): Texto que o sentimento deve ser analisado.
+        path_model (Sklearn Model): Caminho do classificador treinado.
+        path_count (CountVectorizer): Caminho do CountVectorizer salvo.
+        path_tfidf (TfidfTransformer): Caminho do tf-idf salvo.
+
+    Returns:
+        Int: Predição do sentimento do texto
+                0 - Sentimento Ruim
+                1 - Sentimento Bom
+    """
+    text_lemma = lemmatize(text)
+
+    try:
+        logging.info(f'Realizando predição do texto: {text}')
+        vetorizer  = load_model(path_count)
+        text_vec = vetorizer.transform([' '.join(text_lemma)])
+
+        transformer  = load_model(path_tfidf)
+        text_vec = transformer.transform(text_vec)
+
+        model  = load_model(path_model)
+        pred = model.predict(text_vec)   
+
+        if(pred[0]==0):     
+            logging.info(f'O Sentimento é ruim.')
+        else:
+            logging.info(f'O Sentimento é bom.')
+    except:
+        logging.error(f'Algum path pode não existir.')
+        exit()
+
+    return pred[0]

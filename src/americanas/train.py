@@ -15,11 +15,11 @@ def main():
     
     ap.add_argument('-cv', '--path_count',
                     default= r'models/count.pkl',
-                    help='Caminho para salvar o classificador treinado.')
+                    help='Caminho para salvar o CountVectorizer.')
     
     ap.add_argument('-tf', '--path_tfidf',
                     default= r'models/tfidf.pkl',
-                    help='Caminho para salvar o classificador treinado.')
+                    help='Caminho para salvar o TF-IDF.')
 
 
     args = vars(ap.parse_args())
