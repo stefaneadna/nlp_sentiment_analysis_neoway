@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 import spacy
 import nltk
 nltk.download('rslp')
+nltk.download('punkt')
 from nltk.stem import RSLPStemmer
 download('stopwords')
 
