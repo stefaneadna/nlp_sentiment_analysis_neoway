@@ -97,7 +97,7 @@ nibabel==4.0.2
 nltk==3.8.1
 notebook==6.5.2
 notebook_shim==0.2.2
-numpy==1.21.6
+numpy==1.21.1
 oauthlib==3.2.2
 open3d==0.16.0
 opencv-python==4.7.0.68
