@@ -6,7 +6,7 @@ def main():
     ap = argparse.ArgumentParser()
 
     ap.add_argument('-tx', '--text',
-                    default= r'Este produto é muito bom.',
+                    default= r'Este produto é muito ruim.',
                     help='Texto para analise do sentimento.')
 
     ap.add_argument('-pm', '--path_model',

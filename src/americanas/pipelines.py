@@ -25,7 +25,6 @@ def train_pipeline(path_dataset,path_model,path_count,path_tfidf):
     try:
         logging.info(f'Carregando o dataset do path:{path_dataset}')
         df = read_pre_processing_dataset(path_dataset)
-        df = df[0:50]
         df['review_lemma'] = df['title_text_review'].apply(lemmatize)
     except:
         logging.error(f'O path indicado não existe: {path_dataset}')
