@@ -11,15 +11,15 @@ def main():
 
     
     ap.add_argument('-pm', '--path_model',
-                    default= r'../../models/lr.pkl',
+                    default= r'models/lr.pkl',
                     help='Caminho do classificador treinado.')
     
     ap.add_argument('-cv', '--path_count',
-                    default= r'../../models/count.pkl',
+                    default= r'models/count.pkl',
                     help='Caminho do CountVectorizer.')
     
     ap.add_argument('-tf', '--path_tfidf',
-                    default= r'../../models/tfidf.pkl',
+                    default= r'models/tfidf.pkl',
                     help='Caminho do TF-IDF.')
 
 
@@ -29,7 +29,7 @@ def main():
     page = st.sidebar.selectbox('Selecione a página',
                                 ['Analisador de sentimento','Documentação'])
     
-    df = read_pre_processing_dataset('../../dataset/B2W-Reviews01.csv')
+    df = read_pre_processing_dataset('dataset/B2W-Reviews01.csv')
 
     if page == 'Analisador de sentimento':
         st.title('Analisador de sentimento')
