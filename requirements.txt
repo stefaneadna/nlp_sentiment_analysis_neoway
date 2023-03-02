@@ -121,14 +121,6 @@ pyasn1-modules==0.2.8
 pycparser==2.21
 pydantic==1.10.5
 pydeck==0.8.0
-pydicom==2.3.1
-Pygments==2.14.0
-pymeshlab==2022.2.post2
-Pympler==1.0.1
-pyparsing==3.0.9
-PyQt5==5.15.8
-PyQt5-Qt5==5.15.2
-PyQt5-sip==12.11.1
 pyrsistent==0.19.3
 python-dateutil==2.8.2
 python-gdcm==3.0.21
