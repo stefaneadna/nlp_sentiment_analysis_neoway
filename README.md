@@ -34,3 +34,22 @@ A base de dados utilizada neste projeto está na pasta Dataset. Os modelos são 
 ```
 pip install -r requirements.txt
 ```
+
+Para treinar um novo modelo pode-se executar o comando abaixo:
+
+```
+python src/americanas/train.py
+```
+
+Caso seja necessário alterar o caminho da pasta do dataset ou o caminho em que os modelos serão salvos, pode-se enviar estes caminhos como argumento. Sendo eles:
+```
+--path_dataset <caminho_dataset> 
+--path_count <caminho_count_vectorizer> 
+--path_tfidf <caminho_tfidf>
+--path_model <caminho_classificador>
+```
+Para realizar a predição de um texto, pode-se executar o comando abaixo:
+
+```
+python src/americanas/predict.py --text "este produto é muito bom"
+```
