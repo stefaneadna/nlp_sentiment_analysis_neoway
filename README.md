@@ -1,4 +1,4 @@
-### ANÁLISE DE SENTIMENTOS AMERICANAS
+# ANÁLISE DE SENTIMENTOS AMERICANAS
 Este projeto utiliza técnicas de Processamento de Linguagem Natural (PLN) para classificar o sentimento dos comentários feitos pelos usuários na review de produtos do site Americanas.com. A documentação completa deste projeto pode ser acessada no arquivo “documentação_americanas.pdf”.
 
 #### DATASET
