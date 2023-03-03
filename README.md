@@ -26,4 +26,4 @@ Visando encontrar os melhores parâmetros para o projeto, foram desenvolvidos um
 
 Com isso, a partir dos resultados obtidos nos experimentos, ficou comprovado que os melhores resultados foram obtidos utilizando os algoritmos de lematização, TF-IDF e o classificador de Regressão Logística. Este algoritmos em conjunto obtiveram 92.49% de acurácia nos testes. A figura abaixo exibe a matriz de confusão do modelo utilizado neste pipeline.
 
-<img src="imagens//matriz.png">
+<img src="imagens//matriz.png" width="400">
