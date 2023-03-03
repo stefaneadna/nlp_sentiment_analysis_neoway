@@ -19,13 +19,13 @@ Visando encontrar os melhores parâmetros para o projeto, foram desenvolvidos um
 - **Validação cruzada:** Esta técnica foi utilizada para validar o melhor modelo de classificação. O algoritmo K-fold com K igual a 10 foi utilizado, sendo avaliadas as métricas de acurácia e f1-score. O classificador que obteve os melhores resultados foi o de Regressão logística com 90.32% de média de acurácia e 93.65% de média de F1-Score.  A Tabela abaixo exibe os resultados obtidos através destes experimentos.
 
 <p align="center">
-  <img src="imagens/TAB2.png" width="450">
+  <img src="imagens/TAB1.png" width="450">
 </p>
   
 - **Processamento textual:** Utilizada para encontrar o melhor tipo de processamento textual, os algoritmos de Lematização e Stemização foram utilizados. Com isso, utilizando o TF-IDF e o classificador de Regressão Logística, foram realizados testes utilizando os tipos de pré-processamento e as colunas review_text e review_title do dataset. A Tabela abaixo exibe o resultado destes experimentos.
 
 <p align="center">
-  <img src="imagens/TAB1.png" width="450">
+  <img src="imagens/TAB2.png" width="450">
 </p>
 
 Com isso, a partir dos resultados obtidos nos experimentos, ficou comprovado que os melhores resultados foram obtidos utilizando os algoritmos de lematização, TF-IDF e o classificador de Regressão Logística. Este algoritmos em conjunto obtiveram 92.49% de acurácia nos testes. A figura abaixo exibe a matriz de confusão do modelo utilizado neste pipeline.
