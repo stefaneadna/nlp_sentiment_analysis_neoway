@@ -57,7 +57,10 @@ python src/americanas/predict.py --text "este produto é muito bom"
 #### STREAMLIT
 Uma aplicação no Streamlit foi desenvolvida com o intuito de facilitar a análise do sentimento de um texto. A aplicação permite que o usuário visualize o dashboard das análises realizadas e também  insira um título e um texto de uma análise que a aplicação irá retornar para o usuário qual o sentimento do texto, podendo ser um sentimento positivo ou negativo. Este é o [link](https://stefaneadna-nlp-sentiment-analysis-neow-srcamericanasapp-rmkwy2.streamlit.app/) para acesso da aplicação.
 
-<img src="imagens/streamlit.png" width="350">
+<p align="center">
+  <img src="imagens/streamlit.png" width="350">
+</p>
+
 
 #### ANÁLISES
 
