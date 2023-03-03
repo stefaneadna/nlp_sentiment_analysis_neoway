@@ -33,6 +33,7 @@ Com isso, a partir dos resultados obtidos nos experimentos, ficou comprovado que
 <p align="center">
 <img src="imagens//matriz.png" width="450">
 </p>
+
 #### REPRODUTIVIDADE
 A base de dados utilizada neste projeto está na pasta Dataset. Os modelos são salvos automaticamente dentro da pasta Models.  Além disso, para utilizar este projeto deve-se clonar este repositório e executar o seguinte comando dentro da pasta do projeto: 
 
