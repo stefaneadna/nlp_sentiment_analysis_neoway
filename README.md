@@ -1,15 +1,15 @@
 # ANÁLISE DE SENTIMENTOS AMERICANAS
 Este projeto utiliza técnicas de Processamento de Linguagem Natural (PLN) para classificar o sentimento dos comentários feitos pelos usuários na review de produtos do site Americanas.com. A documentação completa deste projeto pode ser acessada no arquivo “documentação_americanas.pdf”.
 
-#### DATASET
+### DATASET
 A base de dados utilizada foi disponibilizada pela B2W e contém colunas referentes ao título e texto da avaliação, nome e categoria do produto vendido, data de nascimento, gênero e localização do usuário que comprou o produto. Além disso, esta base contém as colunas “overall_rating” e “recommend_to_a_friend” que são referentes ao sentimento do usuário com relação ao produto comprado. 
 
 A coluna “overall_rating” pode possuir 5 valores, estando na escala de 1 a 5, onde o valor mais alto corresponde a um alto nível de satisfação com o produto. A coluna “recommend_to_a_friend” pode ter respostas assinaladas com “Yes” ou “No” e corresponde as respostas do usuário quando eles foram perguntados se eles indicariam o produto comprado para um amigo. Conforme as informações publicadas pelo artigo do B2W, existem inconsistências que podem ocorrer ao analisar os sentimentos dos usuários com base na coluna “overall_rating”. Sendo assim, este projeto utiliza a coluna “recommend_to_a_friend” para classificar o sentimento dos comentários feitos pelos usuários.
 
-#### PRÉ-PROCESSAMENTO
+### PRÉ-PROCESSAMENTO
 As técnicas de remoção de caracteres especiais, remoção de StopWords, Lematização e Stemização foram utilizadas para o processamento textual das colunas “review_title” e “review_text”. O pré-processamento foi realizado utilizando o notebook “text_processing.ipynb” e a GPU do Google Colab, contendo apenas as primeiras 50 mil linhas do Dataset. 
 
-#### EXPERIMENTOS
+### EXPERIMENTOS
 Visando encontrar os melhores parâmetros para o projeto, foram desenvolvidos uma série de experimentos utilizando vários tipos de pré-processamento textual, classificadores e técnicas para validação dos modelos. Os experimentos foram realizados utilizando o notebook “experimentos.ipynb” que foi executado utilizando a GPU do Google Colab. Além disso, os dados foram divididos em 80% para treinamento e 20% para teste dos classificadores. Os testes desenvolvidos foram:
 
 - **Vetorização dos dados:** foram testados os algoritmos de vetorização Doc2Vec e o TF-IDF. Os dois algoritmos de vetorização foram utilizados em conjunto com o classificador de Regressão Logística.  O classificador treinado com o Doc2vec obteve 85.8% de acurácia, o treinado utilizando o TF-IDF obteve 90.19% de acurácia. Por tanto, para este problema, o melhor algoritmo de vetorização foi o TF-IDF utilizado em conjunto com o CountVectorizer. 
@@ -34,7 +34,7 @@ Com isso, a partir dos resultados obtidos nos experimentos, ficou comprovado que
 <img src="imagens//matriz.png" width="450">
 </p>
 
-#### REPRODUTIVIDADE
+### REPRODUTIVIDADE
 A base de dados utilizada neste projeto está na pasta Dataset. Os modelos são salvos automaticamente dentro da pasta Models.  Além disso, para utilizar este projeto deve-se clonar este repositório e executar o seguinte comando dentro da pasta do projeto: 
 
 ```
@@ -60,7 +60,7 @@ Para realizar a predição de um texto, pode-se executar o comando abaixo:
 python src/americanas/predict.py --text "este produto é muito bom"
 ```
 
-#### STREAMLIT
+### STREAMLIT
 Uma aplicação no Streamlit foi desenvolvida com o intuito de facilitar a análise do sentimento de um texto. A aplicação permite que o usuário visualize o dashboard das análises realizadas e também  insira um título e um texto de uma análise que a aplicação irá retornar para o usuário qual o sentimento do texto, podendo ser um sentimento positivo ou negativo. Este é o [link](https://stefaneadna-nlp-sentiment-analysis-neow-srcamericanasapp-rmkwy2.streamlit.app/) para acesso da aplicação.
 
 <p align="center">
@@ -68,7 +68,7 @@ Uma aplicação no Streamlit foi desenvolvida com o intuito de facilitar a anál
 </p>
 
 
-#### ANÁLISES
+### ANÁLISES
 
 Foram realizadas algumas análises utilizando a base de dados da B2W. A figura abaixo exibe o gráfico da relação entre a quantidade de avaliações dos produtos, o gênero e o sentimento de avaliação dos usuários. A partir desta analise, pode-se perceber que a maior quantidade de avaliações possuem sentimento positivo e as pessoas do sexo masculino costumam fazer mais avaliações no site das Americanas.
 
