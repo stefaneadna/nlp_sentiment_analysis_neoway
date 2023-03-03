@@ -71,8 +71,8 @@ A figura abaixo exibe um gráfico que contém uma relação da idade dos usuári
 
 Outra análise realizada foi a dos produtos que possuem as maiores quantidades de avaliações positivas e negativas. Como pode ser visualizado nas figuras abaixo, alguns produtos possuem a indicação de valores de variação (traço na barra), isso ocorre para produtos que são iguais, mas possuem a cor diferente.
 
-<img src="imagens/aval_boas.png">
-<img src="imagens/aval_ruins.png">
+<img src="imagens/pos.png">
+<img src="imagens/neg.png">
 
 Ademais, também foi analisado o top dez de categorias de produtos mais avaliadas. Conforme fica claro na visualização da figura abaixo, as categorias de produtos de Smartfone, TV e Cabelo são as mais avaliadas.
 
@@ -80,5 +80,5 @@ Ademais, também foi analisado o top dez de categorias de produtos mais avaliada
 
 As nuvens de palavras para as avaliações boas e ruins também foram geradas. Conforme as figuras abaixo. Na nuvem de palavras de avaliações boas, pode-se visualizar palavras como: recomendo, bom, excelente, ótima, rápida, qualidade. Na nuvem de palavras de avaliações ruins pode-se visualizar palavras como: péssimo, ruim, defeito e problema.
 
-<img src="imagens/pos.png">
-<img src="imagens/neg.png">
+<img src="imagens/aval_boas.png">
+<img src="imagens/aval_ruins.png">
