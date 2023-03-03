@@ -26,4 +26,11 @@ Visando encontrar os melhores parâmetros para o projeto, foram desenvolvidos um
 
 Com isso, a partir dos resultados obtidos nos experimentos, ficou comprovado que os melhores resultados foram obtidos utilizando os algoritmos de lematização, TF-IDF e o classificador de Regressão Logística. Este algoritmos em conjunto obtiveram 92.49% de acurácia nos testes. A figura abaixo exibe a matriz de confusão do modelo utilizado neste pipeline.
 
-<img src="imagens//matriz.png" width="400">
+<img src="imagens//matriz.png" width="200">
+
+#### REPRODUTIVIDADE
+A base de dados utilizada neste projeto está na pasta Dataset. Os modelos são salvos automaticamente dentro da pasta Models.  Além disso, para utilizar este projeto deve-se clonar este repositório e executar o seguinte comando dentro da pasta do projeto: 
+
+```
+pip install -r requirements.txt
+```
